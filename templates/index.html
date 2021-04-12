@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+    Note
+    <a href="{{ url_for('new_post') }}">novo post</a> 
+{% endblock %}
+
+{% block body %}
+
+    <ul>
+        {% for note in notes %}
+            <div>{{ note }}</div> <a href="{{ url_for('new_post') }}" method="get">editar</a>  
+        {% endfor %}
+    </ul>
+
+{% endblock %}
