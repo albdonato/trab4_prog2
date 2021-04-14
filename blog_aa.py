@@ -20,9 +20,9 @@ def index():
 
     if request.method == "POST":
         title = request.form.get("title")
-        session["notes"].append(title)
         note = request.form.get("note")
-        session["notes"].append(note)
+        blog_post=[title,note]
+        session["notes"].append(blog_post)
 
 
     return render_template("index.html", notes=session["notes"])
@@ -33,14 +33,10 @@ def new_post():
             session["notes"] = []
 
     if request.method == "POST":
-            title = request.form.get("title")
-            session["notes"].append(title)
-            note = request.form.get("note")
-            session["notes"].append(note)
-            
-
-    return render_template("new_post.html", notes=session["notes"])
-#@blog_aa.route(f"/{note}", methods=["POST","GET"])
-#def edit(note):
-
+        title = request.form.get("title")
+        note = request.form.get("note")
+        blog_post=[title,note]
+        session["notes"].append(blog_post)
+    
+    if request.method == "GET":
 
