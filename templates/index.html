@@ -2,18 +2,19 @@
 
 {% block heading %}
     Note
-    <a href="{{ url_for('new_post') }}">novo post</a> 
+    <a href="{{ url_for('new_post')}}">novo post</a> 
 {% endblock %}
 
 {% block body %}
 
     <ul>
-        {% for note in notes%}           
+        {% for note in notes%}
             <li>
-                <h2>{{ note[0] }}</h2>
-                <span>{{ note[1] }}</span>
+                <h2>{{ note.title }}</h2>
+                <span>{{ note.message }}</span>
+                <span>{{note.id}}</span>
                 <div>
-                    <a href="{{ url_for('new_post'), method='POST' }}">Editar</a>
+                    <a href="{{ url_for('edit_post',id=note.id) }}">Editar</a>
                     <a>Excluir</a>       
                 </div>
             </li>
