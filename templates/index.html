@@ -8,9 +8,15 @@
 {% block body %}
 
     <ul>
-        {% for note in notes %}
-           
-            <div>{{note}}}</div> <a href="{{ url_for('new_post') }}">editar1</a> 
+        {% for note in notes%}           
+            <li>
+                <h2>{{ note[0] }}</h2>
+                <span>{{ note[1] }}</span>
+                <div>
+                    <a href="{{ url_for('new_post'), method='POST' }}">Editar</a>
+                    <a>Excluir</a>       
+                </div>
+            </li>
            
         {% endfor %}
     </ul>
