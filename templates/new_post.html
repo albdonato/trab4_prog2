@@ -8,12 +8,21 @@
 
     <form action="{{ url_for('index') }}" method="post" >
        <fieldset>
-        <li>
-            <textarea id="title" placeholder="Title" rows=1 cols=30 name="title"></textarea>
-        </li> 
-        <li>
-            <textarea id="note" placeholder="message" rows=5 cols=55 name="note"></textarea>
-        </li>
+            {% if input_note %}
+            <li>
+                <textarea rows=1 cols=30 name='title'>{{ input_note.title}}</textarea>
+            </li>
+            <li>
+                <textarea rows=5 cols=55 name='message'>{{ input_note.message }}</textarea>
+            </li>
+            {% else %}
+            <li>
+                <textarea placeholder="Title" rows=1 cols=30 name="title"></textarea>
+            </li> 
+            <li>
+                <textarea placeholder="message" rows=5 cols=55 name="message"></textarea>
+            </li>
+            {% endif %}
         <button>Postar</button>
         </fieldset>
     </form>
